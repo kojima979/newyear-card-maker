@@ -588,9 +588,9 @@ export function RightPanel() {
                     : "border-transparent hover:bg-stone-100 text-stone-700"
                 }`}
               >
-                <span className="truncate flex-1">{el.name}</span>
+                <span className="truncate flex-1 mr-1">{el.name}</span>
                 <div
-                  className="flex items-center gap-0.5"
+                  className="flex items-center gap-0.5 shrink-0"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <button
@@ -638,6 +638,15 @@ export function RightPanel() {
                     ) : (
                       <Unlock className="w-3.5 h-3.5" />
                     )}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => deleteElement(el.id)}
+                    className="p-1 text-stone-400 hover:text-red-600 cursor-pointer"
+                    title="レイヤーを削除"
+                    aria-label={`${el.name}を削除`}
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>

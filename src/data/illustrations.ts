@@ -10,8 +10,16 @@ export interface IllustrationAsset {
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export function withBasePath(path: string): string {
-  if (!BASE_PATH) return path;
-  return `${BASE_PATH}${path}`;
+  if (BASE_PATH) {
+    return `${BASE_PATH}${path}`;
+  }
+  if (
+    typeof window !== "undefined" &&
+    window.location.pathname.startsWith("/newyear-card-maker")
+  ) {
+    return `/newyear-card-maker${path}`;
+  }
+  return path;
 }
 
 export const ILLUSTRATION_ASSETS: readonly IllustrationAsset[] = [

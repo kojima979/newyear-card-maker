@@ -35,37 +35,27 @@ export function LocalPrivacyBanner() {
     <>
       <div
         className={`bg-emerald-900 text-emerald-50 border-b border-emerald-700/70 px-4 transition-all ${
-          minimized ? "py-1 text-xs" : "py-2 text-xs sm:text-sm"
+          minimized ? "py-0.5 text-xs" : "py-2 text-xs sm:text-sm"
         }`}
       >
         <div className="max-w-[1600px] mx-auto flex flex-wrap items-center justify-between gap-2">
           {minimized ? (
             <>
-              <div className="flex items-center gap-2 font-medium">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-300 shrink-0" />
-                <span className="text-emerald-100">
-                  完全ローカル処理（サーバー送信なし）
-                </span>
+              <div
+                className="flex items-center text-emerald-300"
+                title="完全ローカル処理（サーバー送信なし）"
+              >
+                <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
               </div>
-              <div className="flex items-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => setShowDetail(true)}
-                  className="inline-flex items-center gap-1 text-emerald-200 hover:text-white underline underline-offset-2 shrink-0 cursor-pointer"
-                >
-                  <Info className="w-3.5 h-3.5" />
-                  仕組みを確認
-                </button>
-                <button
-                  type="button"
-                  onClick={toggleMinimized}
-                  className="inline-flex items-center gap-1 rounded-md bg-emerald-800 hover:bg-emerald-700 px-2 py-0.5 text-emerald-100 border border-emerald-600/50 cursor-pointer"
-                  aria-label="お知らせを展開"
-                >
-                  <ChevronDown className="w-3.5 h-3.5" />
-                  展開
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={toggleMinimized}
+                className="inline-flex items-center justify-center rounded bg-emerald-800/80 hover:bg-emerald-700 p-0.5 text-emerald-100 border border-emerald-600/40 cursor-pointer"
+                aria-label="お知らせを展開"
+                title="ローカル処理のお知らせを展開"
+              >
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
             </>
           ) : (
             <>
